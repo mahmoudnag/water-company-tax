@@ -1,0 +1,95 @@
+﻿@model IEnumerable<kheoom.ViewModels.InvoiceVM>
+
+@{
+    ViewData["Title"] = "جميع الفواتير";
+}
+
+<h1 style="background-color:cornflowerblue;border-radius:5px;color:greenyellow"> جميع الفواتير</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.Invoice_All_Value_)
+            </th>
+            <th>
+                    @Html.DisplayNameFor(model => model.Invoice_Value_)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Consumption_Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NowRead)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastRead)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubscriberName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubscriberID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.System_SubscriptionID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataEntry)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.System_InvoiceID)
+            </th>
+      
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+
+                <td>
+
+                    @Html.ActionLink("حذف", "Delete", new {id=item.System_InvoiceID})
+                </td>
+           
+          
+          
+            
+          
+     
+         
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.Invoice_All_Value_)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Invoice_Value_)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Consumption_Amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NowRead)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastRead)
+                </td>
+                      <td>
+                    @Html.DisplayFor(modelItem => item.SubscriberName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubscriberID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.System_SubscriptionID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataEntry)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.System_InvoiceID)
+                </td>
+        </tr>
+}
+    </tbody>
+</table>

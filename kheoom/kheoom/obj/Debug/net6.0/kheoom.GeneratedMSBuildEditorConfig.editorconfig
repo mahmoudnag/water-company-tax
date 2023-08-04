@@ -1,0 +1,85 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = kheoom
+build_property.RootNamespace = kheoom
+build_property.ProjectDir = J:\inertOOP\kheoom\kheoom\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
+build_property.MSBuildProjectDirectory = J:\inertOOP\kheoom\kheoom
+build_property._RazorSourceGeneratorDebug = 
+
+[J:/inertOOP/kheoom/kheoom/Views/Account/SignIn.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxTaWduSW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[J:/inertOOP/kheoom/kheoom/Views/Block/AddBlock.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvY2tcQWRkQmxvY2suY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[J:/inertOOP/kheoom/kheoom/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[J:/inertOOP/kheoom/kheoom/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[J:/inertOOP/kheoom/kheoom/Views/Invoice/GetAllInvoice.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52b2ljZVxHZXRBbGxJbnZvaWNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[J:/inertOOP/kheoom/kheoom/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[J:/inertOOP/kheoom/kheoom/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[J:/inertOOP/kheoom/kheoom/Views/Subscriber/GetAllSubscriber.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3Vic2NyaWJlclxHZXRBbGxTdWJzY3JpYmVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[J:/inertOOP/kheoom/kheoom/Views/Subscription/GetAllSubscription.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3Vic2NyaXB0aW9uXEdldEFsbFN1YnNjcmlwdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[J:/inertOOP/kheoom/kheoom/Views/User/AddInvice.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxBZGRJbnZpY2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[J:/inertOOP/kheoom/kheoom/Views/User/AddSlice.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxBZGRTbGljZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[J:/inertOOP/kheoom/kheoom/Views/User/AddSubscriber.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxBZGRTdWJzY3JpYmVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[J:/inertOOP/kheoom/kheoom/Views/User/AddSubscription.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxBZGRTdWJzY3JpcHRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[J:/inertOOP/kheoom/kheoom/Views/User/SignIn.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxTaWduSW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[J:/inertOOP/kheoom/kheoom/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[J:/inertOOP/kheoom/kheoom/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[J:/inertOOP/kheoom/kheoom/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-ivc3hspt7z

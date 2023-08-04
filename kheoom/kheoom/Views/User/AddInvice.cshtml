@@ -1,0 +1,367 @@
+﻿@model kheoom.ViewModels.InvoiceVM
+
+@{
+    ViewData["Title"] = "AddInvice";
+    var rand = new Random();
+    int InvoiceSystemID = rand.Next();
+    DateTime toDate = DateTime.Now;
+}
+<h1 style="background-color:cornflowerblue;border-radius:5px;color:greenyellow">  اضافة فاتورة</h1>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+
+    <form asp-action="AddInvice" id="invoiceform">
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+       <table>
+         
+        <tr>
+            <td>
+                <label asp-for="System_InvoiceID"  class="control-label"></label>
+                <input asp-for="System_InvoiceID" value="@InvoiceSystemID" readonly class="form-control" />
+                <span asp-validation-for="System_InvoiceID" class="text-danger"></span>
+           
+         </td>
+         <td style="width:200px;"></td>
+         <td>
+                <label asp-for="DataEntry" class="control-label"></label>
+                <input asp-for="DataEntry" class="form-control" />
+                <span asp-validation-for="DataEntry" class="text-danger"></span>
+            </td>
+        <tr>
+        <td>
+            <label asp-for="FromDate" class="control-label"></label>
+            <input asp-for="FromDate" class="form-control" />
+            <span asp-validation-for="FromDate" class="text-danger"></span>
+        </td>
+
+            <td style="width:200px;"></td>
+             <td><label asp-for="ToDate" class="control-label"></label>
+                <input asp-for="ToDate" value="@toDate" class="form-control" />
+                <span asp-validation-for="ToDate" class="text-danger"></span>
+        </td>
+    </tr>
+           <tr>   
+               <td>
+               <label asp-for="System_SubscriptionID" class="control-label"></label><br />
+                <select id="SubscriptionID" name="System_SubscriptionID" onchange="getSubscriber()" style="width: 100%; height:40px;">
+                <option>اختر  رقم الاشتراك</option>
+                @foreach (var sub in @ViewBag.data)
+                {
+                        <option value="@sub.SubscriberID">@sub.SystemsubsriptionId</option>
+                }
+                </select>
+
+               
+               
+                <span asp-validation-for="System_SubscriptionID" class="text-danger"></span>
+            </td>
+            <td style="width:200px;"></td>
+                <td>
+               
+        
+  
+         
+                <label asp-for="SubscriberID" class="control-label"></label>
+                <input asp-for="SubscriberID" readonly id="SubscriberID" class="form-control" />
+                <span asp-validation-for="SubscriberID" class="text-danger"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+        <label asp-for="SubscriberName" class="control-label"></label>
+                <input asp-for="SubscriberName" readonly id="SubscriberName" class="form-control" />
+                <span asp-validation-for="SubscriberName" class="text-danger"></span>
+            </td>
+            <td style="width:200px;"></td>
+            <td>
+
+      
+                <label asp-for="LastRead" class="control-label"></label>
+                <input asp-for="LastRead" id="LastRead" readonly class="form-control" />
+                <span asp-validation-for="LastRead" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="NowRead" class="control-label"></label>
+                <input asp-for="NowRead" id="NowRead" onblur="getconsumtion()" class="form-control" />
+                <span asp-validation-for="NowRead" class="text-danger"></span>
+            </td><td style="width:200px;"></td>
+            <td>
+      
+                <label asp-for="Consumption_Amount" class="control-label"></label>
+                <input asp-for="Consumption_Amount" readonly id="Consumption_Amount" class="form-control" />
+                <span asp-validation-for="Consumption_Amount"  class="text-danger"></span>
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="Sanitation" class="control-label"></label>
+                <input asp-for="Sanitation" id="Sanitation" readonly class="form-control" />
+                <span asp-validation-for="Sanitation" class="text-danger"></span>
+            </td>
+            <td style="width:200px;"></td>
+                <td>
+      
+                <label asp-for="subscription_BlockNumbers" class="control-label"></label>
+                <input asp-for="subscription_BlockNumbers" id="subscription_BlockNumbers"  readonly id="subscription_BlockNumbers" class="form-control" />
+                <span asp-validation-for="subscription_BlockNumbers" class="text-danger"></span>
+            </td>
+                </tr>
+                <tr>
+      <td>
+                <label asp-for="Service_Fee" class="control-label"></label>
+                <input asp-for="Service_Fee" id="Service_Fee" class="form-control" />
+                <span asp-validation-for="Service_Fee" class="text-danger"></span>
+            </td>
+            <td style="width:200px;"></td>
+                <td>
+      
+                <label asp-for="Tax_rate" class="control-label"></label>
+                <input asp-for="Tax_rate" onblur="getallInvoice()" id="Tax_rate" class="form-control" />
+               
+                <span asp-validation-for="Tax_rate"  class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="ConsumptionValue_Water" class="control-label"></label>
+                <input asp-for="ConsumptionValue_Water" readOnly id="ConsumptionValue_Water" class="form-control"/>
+                <span asp-validation-for="ConsumptionValue_Water"  class="text-danger"></span>
+            </td>
+            <td style="width:200px;"></td>
+                <td>
+      
+                <label asp-for="ConsumptionValue_Sanitation" class="control-label"></label>
+                <input asp-for="ConsumptionValue_Sanitation" id="ConsumptionValue_Sanitation" readOnly class="form-control" />
+                <span asp-validation-for="ConsumptionValue_Sanitation" class="text-danger"></span>
+            </td>
+        </tr>
+      <tr>
+          <td>
+                <label asp-for="Invoice_Value_" class="control-label"></label>
+                <input asp-for="Invoice_Value_" id="Invoice_Value_" readonly class="form-control" />
+                <span asp-validation-for="Invoice_Value_" class="text-danger"></span>
+            </td>
+            <td style="width:200px;"></td>
+            <td>
+      
+                <label asp-for="Invoice_All_Value_" class="control-label"></label>
+                <input asp-for="Invoice_All_Value_" readonly id="Invoice_All_Value_" class="form-control" />
+                <span asp-validation-for="Invoice_All_Value_" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <label asp-for="Notes" class="control-label"></label>
+                <input asp-for="Notes" class="form-control" />
+                <span asp-validation-for="Notes" class="text-danger"></span>
+            </td>
+        </tr>
+
+        <tr style="height:20px;"></tr>
+        <tr style="background-color:blue;color:white"><td colspan="3">   <input style="background-color:blue;color:white;border:none" type="submit" value="اضافة" /></td></tr>
+      
+             
+         
+     
+
+
+        </table>
+    </form>
+
+
+<div>
+    <a asp-action="Index" asp-controller="Home" style="background-color:cornflowerblue;border-radius:5px;color:greenyellow;width:300px;font-size:x-large">رجوع </a>
+</div>
+<script>
+
+
+ 
+ function getSubscriber() {
+        console.log("cooling");
+
+        var SubscriptionID = $("#SubscriptionID").val();
+
+
+        console.log(SubscriptionID);
+        getsubscriptiondata(SubscriptionID);
+
+
+        $.ajax({
+            type: 'POST',
+            url: '/User/getSubscriber',
+            data: {ID:SubscriptionID},
+            dataType: 'json',
+
+
+            success: function (response) {
+           
+                document.getElementById("SubscriberID").value = response.idIdentity;
+                document.getElementById("LastRead").value = response.lastRead;
+                document.getElementById("SubscriberID").value = response.idIdentity;
+                document.getElementById("Sanitation").value = response.sanitation;
+                document.getElementById("subscription_BlockNumbers").value = response.subscription_BlockNumbers;
+
+                getname(response.idIdentity);
+
+            }
+            ,
+            error: function (response) {
+            }
+        });
+
+    }
+                
+    function getname(id){
+        $.ajax({
+            type: 'POST',
+            url: '/User/getSubscriber',
+            data: { ID:id},
+            dataType: 'json',
+
+
+            success: function (response) {
+           
+                document.getElementById("SubscriberName").value= response.name;
+
+                getname(response.idIdentity);
+
+
+            }
+
+            ,
+            error: function (response) {
+
+            }
+        });
+
+
+
+    }
+    function getsubscriptiondata(id)
+    {
+     
+        $.ajax({
+            type: 'POST',
+            url: '/User/getSubscribption',
+            data: {ID:id},
+            dataType: 'json',
+
+
+            success: function (response) {
+         
+             
+                document.getElementById("LastRead").value = response.lastRead;
+                
+                document.getElementById("Sanitation").value = response.sanitation;
+                document.getElementById("subscription_BlockNumbers").value = response.blockNumbers;
+
+
+
+           
+ }
+
+            ,
+            error: function (response) {
+
+
+
+            }
+        });
+
+    }
+   
+    function getconsumtion()
+    {
+        var last=document.getElementById("LastRead").value;
+        var now = document.getElementById("NowRead").value;
+      document.getElementById("Consumption_Amount").value=now-last;
+
+        getconsumtionWater();
+    }
+    function getconsumtionWater() {
+        console.log("hihi");
+
+        var subscription_BlockNumbers = $("#subscription_BlockNumbers").val();
+        var Consumption_Amount = $("#Consumption_Amount").val();
+  
+        if (subscription_BlockNumbers * 16 > Consumption_Amount) {
+
+            console.log(Consumption_Amount * 0.1);
+           document.getElementById("ConsumptionValue_Water").value=Consumption_Amount * 0.1;}
+
+        else if (subscription_BlockNumbers * 16 <= Consumption_Amount && Consumption_Amount <= subscription_BlockNumbers * 30)
+            document.getElementById("ConsumptionValue_Water").value = Consumption_Amount * 1.00;
+           
+        else if (subscription_BlockNumbers * 31 <= Consumption_Amount && Consumption_Amount <= subscription_BlockNumbers * 45)
+            document.getElementById("ConsumptionValue_Water").value = Consumption_Amount * 3.00;
+         
+        else if (subscription_BlockNumbers * 46 <= Consumption_Amount && Consumption_Amount <= subscription_BlockNumbers * 60)
+            document.getElementById("ConsumptionValue_Water").value = Consumption_Amount * 4.00;
+
+
+
+        else if (subscription_BlockNumbers * 60 < Consumption_Amount) {
+            document.getElementById("ConsumptionValue_Water").value = Consumption_Amount * 6.00;
+    
+        }
+       var consumption= document.getElementById("ConsumptionValue_Water").value;
+        document.getElementById("ConsumptionValue_Sanitation").value=consumption/2.00;
+    
+
+        document.getElementById("ConsumptionValue_Sanitation").value = consumption / 2.00;
+       var con_Sanitation= document.getElementById("ConsumptionValue_Sanitation").value;
+
+        document.getElementById("Invoice_Value_").value=parseInt(con_Sanitation)+parseInt(consumption);
+
+        
+
+
+    }
+    function getallInvoice(){
+        var Invoice_Value = document.getElementById("Invoice_Value_").value;
+        var sevcie = document.getElementById("Service_Fee").value;
+        var Tax_rate = document.getElementById("Tax_rate").value;
+       document.getElementById("Invoice_All_Value_").value=parseInt(Invoice_Value)+parseInt(sevcie)+parseInt(Tax_rate);
+
+    }
+
+    $("#invoiceform").submit(function () {
+
+
+        var NowRead = document.getElementById("Consumption_Amount").value;
+        var SubscriptionID = document.getElementById("SubscriptionID").value;
+
+        $.ajax({
+            type: 'POST',
+            url: '/Subscription/SubscribptionUpdateRate',
+            data: { nowread: NowRead, SubscriberID: SubscriptionID },
+            dataType: 'json',
+            success: function (response) {
+                console.log(response);
+
+            }
+
+            ,
+            error: function (response) {
+                console.log(response);
+            }
+        });
+
+    })
+    </script>
+
+
+
+
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

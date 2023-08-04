@@ -1,0 +1,19 @@
+هذا المشروع صمم لشركة غيوم السعودية لحساب ضريبة لعدادا المياة  واضافة  مشتركين واشتراكات وعقارات 
+
+
+
+
+التكنولوجيا المستخدمة 
+
+c# code
+asp.net mvc core
+javascript 
+ajax code 
+jquery
+html
+css
+ا============
+implementation
+-
+-authnitcation 
+-view models

@@ -1,0 +1,146 @@
+﻿@model kheoom.ViewModels.SubScribptionVM
+
+@{
+    ViewData["Title"] = "تحديث اشتراك";
+    var rand = new Random();
+    int x=rand.Next();
+}
+
+<h1 style="background-color:cornflowerblue;border-radius:5px;color:greenyellow">تحديث اشتراك</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddSubscription">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SystemsubsriptionId" class="control-label"></label>
+                <input asp-for="SystemsubsriptionId" value="@x" class="form-control" readonly/>
+                <span asp-validation-for="SystemsubsriptionId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SubscriberID" class="control-label"></label><br />
+                <select id="SubscriberID" name="SubscriberID" onchange="getSubscriber()" style="width: 100%;height:40px;">
+                    <option>اختر رقم هوية مستخدم</option>
+                    @foreach (var sub in ViewBag.data.subsceribersIDs)
+                    {
+                        <option value="@sub.IdIdentity">@sub.IdIdentity</option>
+                    }
+                </select>
+                
+                
+                <span asp-validation-for="SubscriberID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SubscriberName" class="control-label"></label>
+                <input asp-for="SubscriberName" class="form-control" readOnly />
+                <span asp-validation-for="SubscriberName" id="SubscriberName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="city" class="control-label"></label>
+                <input asp-for="city" id="city" readOnly class="form-control" />
+                <span asp-validation-for="city" readOnly class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="area" class="control-label"></label>
+                <input asp-for="area" id="area" rea class="form-control" />
+                <span asp-validation-for="area" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BlockNumbers" class="control-label"></label>
+                <input asp-for="BlockNumbers" class="form-control" />
+                <span asp-validation-for="BlockNumbers" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BlockType" class="control-label"></label><br />
+                <select name="BlockType" style="width:100%;height:40px">
+                    <option>اختر نوع العقار</option>
+                    @foreach (var sub in @ViewBag.data.blocks)
+                    {
+                        <option value="@sub.Name">@sub.Name</option>
+                    }
+
+
+
+                </select>
+              
+                <span asp-validation-for="BlockType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="phone" class="control-label"></label>
+                <input asp-for="phone" class="form-control" />
+                <span asp-validation-for="phone" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Sanitation" class="control-label">هل يوجد صرف صحي </label><br />
+                <select name="Sanitation" style="width:100%;height:40px;">
+                    
+                    <option value="نعم">نعم</option>
+                    <option value="لا">لا</option>
+                </select>
+              
+                <span asp-validation-for="Sanitation" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="Notes" class="control-label"></label>
+                <input asp-for="Notes" class="form-control" />
+                <span asp-validation-for="Notes" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="اضافة" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" asp-controller="Home" style="background-color:cornflowerblue;border-radius:5px;color:greenyellow">رجوع </a>
+</div>
+
+<script>
+
+    function getSubscriber() {
+        console.log("cooling");
+
+        var SubscriberID = $("#SubscriberID").val();
+
+
+        console.log(SubscriberID);
+
+
+        $.ajax({
+            type: 'POST',
+            url: '/User/getSubscriber',
+            data: {ID:SubscriberID},
+            dataType: 'json',
+            
+
+            success: function (response) {
+                console.log(response);
+                document.getElementById("city").value=response.city;
+                document.getElementById("area").value=response.area;
+                document.getElementById("SubscriberName").value=response.name;
+              
+            }
+
+            ,
+            error: function (response) {
+
+
+
+            }
+        });
+
+
+    }
+
+    </script>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

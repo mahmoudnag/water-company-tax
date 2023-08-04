@@ -1,0 +1,95 @@
+﻿@model IEnumerable<kheoom.Models.SubScribption>
+
+@{
+    ViewData["Title"] = "GetAllSubscription";
+}
+
+<h1 style="background-color:cornflowerblue;border-radius:5px;color:greenyellow"> جميع الاشتراكات</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+
+            <th></th>
+         
+            <th>
+                @Html.DisplayNameFor(model => model.Notes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sanitation)
+            </th>
+            <th>
+              اخر قراء
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BlockType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BlockNumbers)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.area)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.city)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubscriberName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubscriberID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SystemsubsriptionId)
+            </th>
+       
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    @Html.ActionLink("حذف", "Delete", new { id=item.SystemsubsriptionId})
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Notes)
+            </td>
+                    <td>
+                    @Html.DisplayFor(modelItem => item.Sanitation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastRead)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BlockType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BlockNumbers)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.area)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.city)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubscriberName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubscriberID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SystemsubsriptionId)
+                </td>
+
+           
+        </tr>
+}
+    </tbody>
+</table>

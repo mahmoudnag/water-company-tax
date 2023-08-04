@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "FileSaver.js@2.0.5",
+      "destination": "wwwroot/FileSaver.js/"
+    },
+    {
+      "library": "TableExport@5.2.0",
+      "destination": "wwwroot/TableExport/"
+    }
+  ]
+}

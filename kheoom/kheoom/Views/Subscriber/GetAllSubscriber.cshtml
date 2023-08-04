@@ -1,0 +1,86 @@
+﻿@model IEnumerable<kheoom.ViewModels.SubScriberGetAllVM>
+
+@{
+    ViewData["Title"] = "جميع المشتركين";
+}
+
+ <script src="~/filesaver.js/filesaver.min.js"></script>
+    <script src="~/filesaver.js/filesaver.js"></script>
+    <script src="~/tableexport/js/tableexport.min.js"></script>
+    <script src="~/tableexport/js/tableexport.js"></script>
+    <link href="~/tableexport/css/tableexport.min.css" rel="stylesheet" />
+    <link href="~/tableexport/css/tableexport.css" rel="stylesheet" />
+<h1 style="background-color:cornflowerblue;border-radius:5px;color:greenyellow"> جميع المشتركين</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+    <td></td>
+            <th>
+                @Html.DisplayNameFor(model => model.subscriptionNumbers)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.area)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.city)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.IdIdentity)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+               <td>
+                    @Html.ActionLink("حذف", "Delete", new {id=item.IdIdentity })
+                </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.subscriptionNumbers)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.area)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.city)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdIdentity)
+                </td>
+
+            
+        </tr>
+}
+    </tbody>
+</table>
+
+<script>
+
+    $(function () {
+
+        $("#btnsubmit").click(function () {
+
+            $("input[name='HtmlTable']").val($("#idEmployee").html());
+        });
+
+    });
+</script>
+
+
+
+

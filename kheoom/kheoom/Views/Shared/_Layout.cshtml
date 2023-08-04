@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - kheoom</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/kheoom.styles.css" asp-append-version="true" />
+    <style>
+        html, body {
+            background-image: url('https://www.elbalad.news/Upload/libfiles/955/6/643.jpeg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100%;
+            color:green;
+            font-family:Georgia;
+            font-size:15px;
+            font-weight:bold;
+        }
+    </style>
+</head>
+<body>
+ 
+    <header>
+      
+   
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+
+            <div style="text-align:center;margin-bottom:50px;background-color:deepskyblue;position:fixed;top:0;margin-bottom:200px;">
+                ,<h1>شركة مياة الشرب</h1>
+            </div>
+            <div class="row" style="height:150px;">
+
+            </div>
+        </div>
+        <div class="row">
+        <main role="main" class="pb-3">
+            <div style="height:550px;float:right;width:200px;text-align:center;border:1px solid black;background-color:greenyellow">
+                <br /><br />
+                <a class="slidelist" asp-area="" asp-controller="User" asp-action="AddSubscriber">اضافة مشترك</a>  <br /><br />
+                <a class="slidelist" asp-area="" asp-controller="User" asp-action="AddSubscription">اضافة اشتراك</a>  <br /><br />
+                <a class="slidelist" asp-area="" asp-controller="User" asp-action="AddInvice">تسجيل فاتورة</a>  <br /><br />
+
+                <a class="slidelist" asp-area="" asp-controller="Block" asp-action="AddBlock">اضافة عقار</a>  <br /><br />
+                <a class="slidelist" asp-area="" asp-controller="Subscriber" asp-action="GetAllSubscriber">تقرير عن المشتركين</a>  <br /><br />
+                <a class="slidelist" asp-area="" asp-controller="Subscription" asp-action="GetAllSubscription">تقرير عن الاشتراكات</a>  <br /><br />
+                <a class="slidelist" asp-area="" asp-controller="Invoice" asp-action="GetAllInvoice"> تقرير عن الفواتير</a>  <br /><br />
+                    <a class="slidelist" asp-area="" asp-controller="Account" asp-action="SignOut">خروج</a>  <br />
+                
+
+            </div>
+            <div style="width:80%;border:1px solid black;text-align:center">
+            @RenderBody()
+            </div>
+        </main>
+        </div>
+    </div>
+
+
+  
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

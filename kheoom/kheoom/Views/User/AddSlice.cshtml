@@ -1,0 +1,65 @@
+﻿@model kheoom.Models.Slice
+
+@{
+    ViewData["Title"] = "AddSlice";
+}
+
+<h1>AddSlice</h1>
+
+<h4>Slice</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddSlice">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Slice_Description" class="control-label"></label>
+                <input asp-for="Slice_Description" class="form-control" />
+                <span asp-validation-for="Slice_Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConsumptionValue_Slice" class="control-label"></label>
+                <input asp-for="ConsumptionValue_Slice" class="form-control" />
+                <span asp-validation-for="ConsumptionValue_Slice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BlockNumbers" class="control-label"></label>
+                <input asp-for="BlockNumbers" class="form-control" />
+                <span asp-validation-for="BlockNumbers" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="price_liter" class="control-label"></label>
+                <input asp-for="price_liter" class="form-control" />
+                <span asp-validation-for="price_liter" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price_Sanitation" class="control-label"></label>
+                <input asp-for="Price_Sanitation" class="form-control" />
+                <span asp-validation-for="Price_Sanitation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Notes" class="control-label"></label>
+                <input asp-for="Notes" class="form-control" />
+                <span asp-validation-for="Notes" class="text-danger"></span>
+                <span asp-validation-for="Notes" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
